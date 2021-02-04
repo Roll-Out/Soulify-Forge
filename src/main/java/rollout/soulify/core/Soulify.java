@@ -1,4 +1,4 @@
-package steveplayzz.soulify.core;
+package rollout.soulify.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
