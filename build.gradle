@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
 
@@ -29,7 +29,7 @@ minecraft {
 			jvmArg "-Dmixin.env.disableRefMap=true"
 
             mods {
-                examplemod {
+                soulify {
                     source sourceSets.main
                 }
             }
@@ -42,7 +42,7 @@ minecraft {
 			jvmArg "-Dmixin.env.disableRefMap=true"
 
             mods {
-                examplemod {
+                soulify {
                     source sourceSets.main
                 }
             }
@@ -52,10 +52,11 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+			jvmArg "-Dmixin.env.disableRefMap=true"
+            args '--mod', 'soulify', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                examplemod {
+                soulify {
                     source sourceSets.main
                 }
             }
@@ -65,10 +66,9 @@ minecraft {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:abnormals-core-382216:${ac_id}")
-    implementation fg.deobf("curse.maven:autoreglib-250363:${arl_id}")
-    implementation fg.deobf("curse.maven:quark-243121:${quark_id}")
-
+    implementation fg.deobf("curse.maven:differentiate-450748:${differentiate_id}")
+    //implementation fg.deobf("curse.maven:autoreglib-250363:${arl_id}")
+    //implementation fg.deobf("curse.maven:quark-243121:${quark_id}")
 }
 
 repositories {

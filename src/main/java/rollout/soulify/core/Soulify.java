@@ -1,10 +1,6 @@
 package rollout.soulify.core;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.minecraftabnormals.abnormals_core.core.util.registry.RegistryHelper;
-
+import co.eltrut.differentiate.core.registrator.Registrator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,11 +13,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("soulify")
 @Mod.EventBusSubscriber(modid = "soulify", bus = Bus.MOD)
-public class Soulify
-{
-    private static final Logger LOGGER = LogManager.getLogger();
+public class Soulify {
     public static final String MOD_ID = "soulify";
-    public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
+    public static final Registrator REGISTRATOR = new Registrator(MOD_ID);
     public static Soulify instance;
 
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -30,8 +24,6 @@ public class Soulify
         modEventBus.addListener(this::doCommonStuff);
         modEventBus.addListener(this::doClientStuff);
         instance = this;
-        
-        REGISTRY_HELPER.register(modEventBus);
         
         MinecraftForge.EVENT_BUS.register(this);
         
