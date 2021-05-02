@@ -21,6 +21,7 @@ public class SoulPumpkinBlock extends Block {
 		super(properties);
 	}
 
+	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
 			Hand handIn, BlockRayTraceResult hit) {
 		ItemStack itemstack = player.getHeldItem(handIn);
